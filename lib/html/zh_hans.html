@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<html>
+	<head>
+		<title>Citer</title>
+		<link rel="stylesheet" href="./static/zh_hans.css">
+	</head>
+	<body>
+		<form action="citer.fcgi">
+            <select class="input-legend" name="input_type">
+                <option value="url-doi-isbn">URL/DOI/ISBN</option>
+                <option value="pmid">PMID</option>
+                <option value="pmcid">PMCID</option>
+                <option value="oclc">OCLC 编号</option>
+            </select>:
+			<div id="inputs">
+				<input name="user_input" autofocus>
+				<input type="submit" value="提交">
+			</div>
+			<p class="input-legend">日期格式：</p>
+			<input type="radio" name="dateformat" value="%Y-%m-%d" id="ymd" onclick="onDateChange()">2020-01-01
+			<input type="radio" name="dateformat" value="%B %{d}, %Y" id="bbdy" onclick="onDateChange()">January 1, 2020
+			<input type="radio" name="dateformat" value="%b %{d}, %Y" id="bdy" onclick="onDateChange()">Jan 1, 2020
+			<input type="radio" name="dateformat" value="%{d} %B %Y" id="dbby" onclick="onDateChange()">1 January 2020
+			<input type="radio" name="dateformat" value="%{d} %b %Y" id="dby" onclick="onDateChange()">1 Jan 2020
+			<br><br>
+		</form>
+		<a href="https://zh.wikipedia.org/wiki/Template:Sfn">哈佛式短脚注（sfn）</a>及引用：
+		<br>
+		<div id="shortened" contenteditable>$sfn<br><br>$cit</div>
+		<a href="https://zh.wikipedia.org/wiki/Help:%E8%84%9A%E6%B3%A8#%E5%A4%9A%E8%99%95%E6%A8%99%E6%98%8E%E5%90%8C%E4%B8%80%E9%A0%85%E8%A8%BB%E8%85%B3">命名引用</a>:
+		<br>
+		<div id="named_ref" contenteditable>$ref</div>
+		<footer>
+			<p>
+				使用此工具可快速生成哈佛式短脚注（sfn）或命名引用，支持
+				<a href="https://books.google.com/">Google 图书 URL</a>、<a href="https://en.wikipedia.org/wiki/Digital_object_identifier">DOI</a>、<a href="https://en.wikipedia.org/wiki/International_Standard_Book_Number">ISBN</a>、<a href="https://en.wikipedia.org/wiki/PubMed#PubMed_identifier">PMID</a>、<a href="https://en.wikipedia.org/wiki/PubMed_Central#PMCID">PMCID</a>、<a href="https://en.wikipedia.org/wiki/OCLC">OCLC</a> 编号，或部分大型新闻网站的网址。
+			</p>
+			<p>
+				免责声明：本工具不保证生成的结果始终正确。使用时请<b>务必</b>自行复验最终效果。
+			</p>
+			<p>
+				如有意见反馈，请发往作者的<a href="https://meta.wikimedia.org/wiki/User_talk:Dalba">讨论页</a>或 <a href="https://github.com/5j9/citer">GitHub</a> 的 Issues 页面。
+				<a id="bookmarklet" href="javascript:void(window.open('https://citer.toolforge.org/citer.fcgi?user_input='+encodeURIComponent(location.href)+'&dateformat='+encodeURIComponent('%B %{d}, %Y')))">小书签（拖拽到书签栏）</a>
+			</p>
+		</footer>
+		<script src="./static/zh_hans.js"></script>
+	</body>
+</html>

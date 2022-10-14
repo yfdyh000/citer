@@ -22,8 +22,19 @@ from lib.noormags import url_to_dict as noormags_url_to_dict
 from lib.pubmed import pmcid_dict, pmid_dict
 from lib.urls import url_to_dict as urls_url_to_dict
 from lib.waybackmachine import url_to_dict as archive_url_to_dict
-if LANG == 'en':
-    from lib.html.en import (
+if LANG == 'fa':
+    from lib.html.fa import (
+        DEFAULT_SCR,
+        UNDEFINED_INPUT_SCR,
+        HTTPERROR_SCR,
+        OTHER_EXCEPTION_SCR,
+        scr_to_html,
+        CSS,
+        CSS_HEADERS,
+        JS,
+        JS_HEADERS)
+elif LANG == 'zh_hans':
+    from lib.html.zh_hans import (
         DEFAULT_SCR,
         UNDEFINED_INPUT_SCR,
         HTTPERROR_SCR,
@@ -34,7 +45,7 @@ if LANG == 'en':
         JS,
         JS_HEADERS)
 else:
-    from lib.html.fa import (
+    from lib.html.en import (
         DEFAULT_SCR,
         UNDEFINED_INPUT_SCR,
         HTTPERROR_SCR,
