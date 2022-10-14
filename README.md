@@ -45,6 +45,9 @@ If there are no warnings or error messages (and no HTML is displayed), the main 
 
 If you experience any problems or have questions, please open an issue on this repo.
 
+### Note for Windows
+* `py -3 -m pip install --user -r requirements.txt` or `python3 -m pip install --user -r requirements.txt`
+
 ## Language Setting
 The default language is English and can be changed to Persian using the setting in the config.py file.
 
